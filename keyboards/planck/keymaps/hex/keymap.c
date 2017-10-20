@@ -42,16 +42,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |  Tab |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  |Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |Esc/Sh|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  | Bksp | (short press: ESC, long press: SHIFT)
+ * |Esc/Sh|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  | Bksp | (tap: ESC, hold: SHIFT)
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl |  GUI | Alt  | Comp |Lower |    Space    |Raise | Left | Down |  Up  |Right | (use RIGHT GUI as compose key)
+ * | Ctrl | Comp | Meta | Alt  |Lower |    Space    |Raise | Left | Down |  Up  |Right | (use RIGHT META / RIGHT GUI / RIGHT OS as compose key)
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = {
   {KC_BSLS, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLASH},
-  {KC_TAB, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT},
+  {KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT},
   {F(0),    KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_BSPC},  /* F(0): ESCAPE on press and SHIFT on hold */
-  {KC_LCTL, KC_LGUI, KC_LALT, KC_RGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_LCTL, KC_RGUI, KC_LGUI, KC_LALT, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
