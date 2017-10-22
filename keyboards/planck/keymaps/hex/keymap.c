@@ -51,24 +51,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_SLSH, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSLS},
   {KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT},
   {F(0),    KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_BSPC},
-  {KC_LCTL, KC_RGUI, KC_LGUI, KC_LALT, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_LCTL, KC_RGUI, KC_LGUI, KC_LALT, LOWER,   KC_SPACE,KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
 },
 
 /* Lower
 * ,-----------------------------------------------------------------------------------.
-* |   0  |   7  |   8  |   9  |   -  |   =  |   !  |   &  |   _  |   ^  |      |      |
+* |   0  |   7  |   8  |   9  |   -  |   =  |   !  |   &  |   _  |   ^  |   |  |      |
 * |------+------+------+------+------+-------------+------+------+------+------+------|
-* |      |   4  |   5  |   6  |   +  |   ~  |   $  |   {  |   [  |   (  |      |      |
+* |      |   4  |   5  |   6  |   +  |   /  |   $  |   {  |   [  |   (  |   ~  |      |
 * |------+------+------+------+------+------|------+------+------+------+------+------|
-* |      |   1  |   2  |   3  |   *  |   %  |   #  |   }  |   ]  |   )  |      |  Del |
+* |      |   1  |   2  |   3  |   *  |   \  |   #  |   }  |   ]  |   )  |   %  |  Del |
 * |------+------+------+------+------+------+------+------+------+------+------+------|
 * |      |      |      |      |      |             |      |      |      |      |      |
 * `-----------------------------------------------------------------------------------'
 */
 [_LOWER] = {
-  {KC_0,    KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_EXLM, KC_AMPR, KC_UNDS, KC_CIRC, _______, _______},
-  {_______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_TILD, KC_DLR,  KC_LCBR, KC_LBRC, KC_LPRN, _______, _______},
-  {_______, KC_1,    KC_2,    KC_3,    KC_ASTR, KC_PERC, KC_HASH, KC_RCBR, KC_RBRC, KC_RPRN, _______, KC_DEL},
+  {KC_0,    KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_EXLM, KC_AMPR, KC_UNDS, KC_CIRC, KC_PIPE, _______},
+  {_______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PSLS, KC_DLR,  KC_LCBR, KC_LBRC, KC_LPRN, KC_TILD, _______},
+  {_______, KC_1,    KC_2,    KC_3,    KC_ASTR, KC_BSLS, KC_HASH, KC_RCBR, KC_RBRC, KC_RPRN, KC_PERC, KC_DEL},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -112,6 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM fn_actions[] = {
   [0] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC), /* F(0) */
+  [1] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_SPC), /* F(1) */
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {

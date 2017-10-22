@@ -1,6 +1,8 @@
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
+#define TAPPING_TERM 300
+
 #include "../../config.h"
 
 #ifdef AUDIO_ENABLE
