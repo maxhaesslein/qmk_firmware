@@ -111,8 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-  [0] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC), /* F(0) */
-  [1] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_SPC), /* F(1) */
+  [0] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC) /* F(0) */
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
