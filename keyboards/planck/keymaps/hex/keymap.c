@@ -44,14 +44,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |Esc/Sh|   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  | Bksp | (Esc/Shift -- tap: ESC, hold: SHIFT)
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Comp | Meta | Alt  |Lower |    Space    |Raise | Left | Down |  Up  |Right | (use RGUI as compose key)
+ * | Ctrl | Comp | Meta | Alt  |Lower |    Space    |Raise | Left |  Up  | Down |Right | (use RGUI as compose key)
  * `-----------------------------------------------------------------------------------'
  */
 [_DVORAK] = {
   {KC_SLSH, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSLS},
   {KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT},
   {F(0),    KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_BSPC},
-  {KC_LCTL, KC_RGUI, KC_LGUI, KC_LALT, LOWER,   KC_SPACE,KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT}
+  {KC_LCTL, KC_RGUI, KC_LGUI, KC_LALT, LOWER,   KC_SPACE,KC_SPC,  RAISE,   KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT}
 },
 
 /* Lower
@@ -62,32 +62,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * |------+------+------+------+------+------|------+------+------+------+------+------|
 * |      |   1  |   2  |   3  |   *  |   \  |   #  |   }  |   ]  |   )  |   %  |      |
 * |------+------+------+------+------+------+------+------+------+------+------+------|
-* |      |      |      |      |      |             |      | HOME |RGDOWN| PGUP | END  |
+* |      |      |      |      |      |             |      | HOME | PGUP |PGDOWN| END  |
 * `-----------------------------------------------------------------------------------'
 */
 [_LOWER] = {
   {KC_0,    KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_EXLM, KC_AMPR, KC_UNDS, KC_CIRC, KC_PIPE, _______},
   {_______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PSLS, KC_DLR,  KC_LCBR, KC_LBRC, KC_LPRN, KC_TILD, _______},
   {_______, KC_1,    KC_2,    KC_3,    KC_ASTR, KC_BSLS, KC_HASH, KC_RCBR, KC_RBRC, KC_RPRN, KC_PERC, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
+  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END}
 },
 
 /* Raise
 * ,-----------------------------------------------------------------------------------.
-* |      |      |      |      |      |      |      |      |  UP  |      |      |      |
+* |      |      |      |      |      |      | Cut  | Copy |  UP  | Paste|      |      |
 * |------+------+------+------+------+-------------+------+------+------+------+------|
 * |      |   @  |      |      |      |      |      | LEFT | DOWN | RIGHT|      |      |
 * |------+------+------+------+------+------|------+------+------+------+------+------|
 * |      |      |      |      |      |      |      |      |      |      |      |  Del |
 * |------+------+------+------+------+------+------+------+------+------+------+------|
-* |      |      |      |      |      |             |      | HOME |PGDOWN| PGUP | END  |
+* |      |      |      |      |      |             |      | HOME | PGUP |PGDOWN| END  |
 * `-----------------------------------------------------------------------------------'
 */
 [_RAISE] = {
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_UP,   _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, KC_CUT,  KC_COPY, KC_UP,   KC_PSTE, _______, _______},
   {_______, KC_AT,   _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL},
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
+  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END}
 },
 
 /* Adjust (Lower + Raise)
