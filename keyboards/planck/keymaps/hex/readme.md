@@ -1,8 +1,8 @@
 # hex layout
-# by maxhaesslein 2017
+# by maxhaesslein 2017-2018
 
 build from root with
-    make planck/rev4:hev
+    make planck/rev4:hex
 
 then flash firmware; press reset button on keyboard, then
     sudo dfu-programmer atmega32u4 erase
