@@ -1,8 +1,8 @@
-#ifndef USERSPACE_CONFIG_H
-#define USERSPACE_CONFIG_H
+#pragma once
 
 
 #ifdef AUDIO_ENABLE
+#define AUDIO_CLICKY
 #define STARTUP_SONG SONG(E1M1_DOOM)
 #define GOODBYE_SONG  SONG(SONIC_RING)
 #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
@@ -10,12 +10,15 @@
                                   SONG(DVORAK_SOUND), \
                                   SONG(OVERWATCH_THEME) \
                                 }
+
+#define AUDIO_CLICKY_FREQ_RANDOMNESS 1.5f
+// #ifdef RGBLIGHT_ENABLE
+// #define NO_MUSIC_MODE
+// #endif //RGBLIGHT_ENABLE
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-  #ifndef KEYBOARD_ergodox_ez
-    #define RGBLIGHT_SLEEP
-  #endif
+#define RGBLIGHT_SLEEP
 #endif // RGBLIGHT_ENABLE
 
 
@@ -39,8 +42,9 @@
 // and when this option isn't enabled, z rapidly followed by x
 // actually sends Ctrl-x. That's bad.)
 #define IGNORE_MOD_TAP_INTERRUPT
-#undef PERMISSIVE_HOLD
-#undef PREVENT_STUCK_MODIFIERS
+#undef  PERMISSIVE_HOLD
+// #define TAPPING_FORCE_HOLD
+//#define RETRO_TAPPING
 
 #define FORCE_NKRO
 
@@ -50,8 +54,12 @@
 
 #ifdef TAPPING_TERM
 #undef TAPPING_TERM
+#endif // TAPPING_TERM
+#ifdef KEYBOARD_ergodox_ez
+  #define TAPPING_TERM 185
+#else
+  #define TAPPING_TERM 175
 #endif
-#define TAPPING_TERM 160
 
 
 // Disable action_get_macro and fn_actions, since we don't use these
@@ -59,7 +67,8 @@
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
+#define DISABLE_LEADER
 
+#define MACRO_TIMER 5
 
-#endif // !USERSPACE_CONFIG_H
 
