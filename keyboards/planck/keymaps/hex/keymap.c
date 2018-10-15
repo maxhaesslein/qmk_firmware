@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "planck.h"
-#include "action_layer.h"
+#include QMK_KEYBOARD_H
+#include "muse.h"
 
 extern keymap_config_t keymap_config;
 
@@ -34,6 +34,9 @@ enum planck_keycodes {
   RAISE
 };
 
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Dvorak
@@ -47,12 +50,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Ctrl | Comp | Meta | Alt  |Lower |    Space    |Raise | Left |  Up  | Down |Right | (use Right Control as compose key)
  * `-----------------------------------------------------------------------------------'
  */
-[_DVORAK] = {
-  {KC_SLSH, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSLS},
-  {KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT},
-  {F(0),    KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_BSPC},
-  {KC_LCTL, KC_RCTL, KC_LGUI, KC_LALT, LOWER,   KC_SPACE,KC_SPC,  RAISE,   KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT}
-},
+[_DVORAK] = LAYOUT_planck_grid(
+  KC_SLSH, KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSLS,
+  KC_TAB,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
+  F(0),    KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_BSPC,
+  KC_LCTL, KC_RCTL, KC_LGUI, KC_LALT, LOWER,   KC_SPACE,KC_SPC,  RAISE,   KC_LEFT, KC_UP,   KC_DOWN, KC_RGHT
+),
 
 /* Lower
 * ,-----------------------------------------------------------------------------------.
@@ -65,12 +68,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * |      |      |      |      |      |             |      | HOME | PGUP |PGDOWN| END  |
 * `-----------------------------------------------------------------------------------'
 */
-[_LOWER] = {
-  {KC_0,    KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_EXLM, KC_AMPR, KC_UNDS, KC_CIRC, KC_PIPE, _______},
-  {_______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PSLS, KC_DLR,  KC_LCBR, KC_LBRC, KC_LPRN, KC_TILD, _______},
-  {_______, KC_1,    KC_2,    KC_3,    KC_ASTR, KC_BSLS, KC_HASH, KC_RCBR, KC_RBRC, KC_RPRN, KC_PERC, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END}
-},
+[_LOWER] = LAYOUT_planck_grid(
+  KC_0,    KC_7,    KC_8,    KC_9,    KC_MINS, KC_EQL,  KC_EXLM, KC_AMPR, KC_UNDS, KC_CIRC, KC_PIPE, _______,
+  _______, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PSLS, KC_DLR,  KC_LCBR, KC_LBRC, KC_LPRN, KC_TILD, _______,
+  _______, KC_1,    KC_2,    KC_3,    KC_ASTR, KC_BSLS, KC_HASH, KC_RCBR, KC_RBRC, KC_RPRN, KC_PERC, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END
+),
 
 /* Raise
 * ,-----------------------------------------------------------------------------------.
@@ -83,12 +86,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * |      |      |      |      |      |             |      | HOME | PGUP |PGDOWN| END  |
 * `-----------------------------------------------------------------------------------'
 */
-[_RAISE] = {
-  {_______, LCTL(KC_X), LCTL(KC_C), KC_UP, LCTL(KC_V), _______, LCTL(KC_X),  LCTL(KC_C), KC_UP, LCTL(KC_V), _______, _______},
-  {_______, KC_AT,   KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL},
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END}
-},
+[_RAISE] = LAYOUT_planck_grid(
+  _______, LCTL(KC_X), LCTL(KC_C), KC_UP, LCTL(KC_V), _______, LCTL(KC_X),  LCTL(KC_C), KC_UP, LCTL(KC_V), _______, _______,
+  _______, KC_AT,   KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END
+),
 
 /* Adjust (Lower + Raise)
 * ,-----------------------------------------------------------------------------------.
@@ -101,41 +104,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * |      |      |      |      |      |             |      | PREV | STOP | PLAY | NEXT |
 * `-----------------------------------------------------------------------------------'
 */
-[_ADJUST] = {
-  {_______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______},
-  {_______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_HOME, KC_PGUP, KC_PGDN, KC_END,  _______},
-  {_______, BL_DEC,  BL_INC,  _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT}
-}
+[_ADJUST] = LAYOUT_planck_grid(
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+  _______, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_HOME, KC_PGUP, KC_PGDN, KC_END,  _______,
+  _______, BL_DEC,  BL_INC,  _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,
+  _______, _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MSTP, KC_MPLY, KC_MNXT
+)
 
 };
+
+uint32_t layer_state_set_user(uint32_t state) {
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+}
 
 const uint16_t PROGMEM fn_actions[] = {
   [0] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC) /* F(0) */
 };
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case LOWER:
-      if (record->event.pressed) {
-        layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case RAISE:
-      if (record->event.pressed) {
-        layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      } else {
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-  }
-  return true;
-}
