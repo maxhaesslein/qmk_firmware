@@ -1,5 +1,5 @@
 /*
- * hex layout Copyright 2017 Max Haesslein
+ * hex layout Copyright 2017-2018 Max Haesslein
  * Original Layout Copyright 2015-2017 Jack Humbert
  *
  * This program is free software: you can redistribute it and/or modify
