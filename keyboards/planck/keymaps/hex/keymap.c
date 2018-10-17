@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Raise
 * ,-----------------------------------------------------------------------------------.
-* |      | Cut  | Copy |  UP  | Paste|      | Cut  | Copy |  UP  | Paste|      |      |
+* |      | Cut  | Copy |  UP  | Paste|SelAll| Cut  | Copy |  UP  | Paste|      |      |
 * |------+------+------+------+------+-------------+------+------+------+------+------|
 * |      |   @  | LEFT | DOWN | RIGHT|      |      | LEFT | DOWN | RIGHT|      |      |
 * |------+------+------+------+------+------|------+------+------+------+------+------|
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * `-----------------------------------------------------------------------------------'
 */
 [_RAISE] = LAYOUT_planck_grid(
-  _______, LCTL(KC_X), LCTL(KC_C), KC_UP, LCTL(KC_V), _______, LCTL(KC_X),  LCTL(KC_C), KC_UP, LCTL(KC_V), _______, _______,
+  _______, LCTL(KC_X), LCTL(KC_C), KC_UP, LCTL(KC_V), LCTL(KC_A), LCTL(KC_X),  LCTL(KC_C), KC_UP, LCTL(KC_V), _______, _______,
   _______, KC_AT,   KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
   _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END
